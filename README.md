@@ -4,7 +4,17 @@
 2. Obtenga su API key en `https://api.cmfchile.cl/api_cmf/contactanos.jsp`, si se completa el formulario debería recibir en segundos su API key en su correo electrónico
 3. Ingrese el valor de la API key en el archivo `.env`
 
-## Paso 1: Iniciar el servidor Metro
+## Paso 1: Instalar las dependencias
+
+```bash
+# usando npm
+npm i
+
+# O usando Yarn
+yarn
+```
+
+## Paso 2: Iniciar el servidor Metro
 
 ```bash
 # usando npm
@@ -14,7 +24,7 @@ npm start
 yarn start
 ```
 
-## Paso 2: Iniciar la app
+## Paso 3: Iniciar la app
 
 ### Para Android
 
