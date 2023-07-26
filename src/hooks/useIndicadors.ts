@@ -1,18 +1,21 @@
 import {useEffect, useState} from 'react';
-import api from '../../api/api';
+import api from '../api/api';
 import {ApiResponse} from 'apisauce';
+import type {UseIndicatorsResult} from './useIndicators.types';
 
-export const useDolarScreen = () => {
-  const [dolarData, setDolarData] = useState([]);
+export const useIndicadors = (
+  path: string,
+  root: string,
+): UseIndicatorsResult => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const currentYear = new Date();
     setLoading(true);
     api
-      .get(`/dolar/${currentYear.getFullYear()}`)
+      .get(path)
       .then((response: ApiResponse<any>) => {
-        setDolarData(response.data.Dolares.reverse().slice(0, 30));
+        setData(response.data[root] ? response.data[root].reverse() : []);
       })
       .catch((error: any) => {
         console.error(error);
@@ -20,10 +23,10 @@ export const useDolarScreen = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [path, root]);
 
   return {
-    dolarData,
+    data,
     loading,
   };
 };

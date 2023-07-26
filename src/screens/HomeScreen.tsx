@@ -2,29 +2,7 @@ import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import IndicatorItem from '../components/IndicatorItem';
 import {useNavigation} from '@react-navigation/native';
-
-const indicators = [
-  {
-    key: 'Dolar',
-    value: 'Dólar Observado',
-  },
-  {
-    key: 'Euro',
-    value: 'Euro',
-  },
-  {
-    key: 'Ipc',
-    value: 'Indice de Precios al Consumidor',
-  },
-  {
-    key: 'Uf',
-    value: 'Unidad de Fomento',
-  },
-  {
-    key: 'Utm',
-    value: 'Unidad Tributaria Mensual',
-  },
-];
+import {indicators} from '../config/indicators';
 
 function HomeScreen() {
   const navigation = useNavigation<any>();
@@ -33,7 +11,23 @@ function HomeScreen() {
     return (
       <IndicatorItem
         name={item.value}
-        onPress={() => navigation.navigate(`${item.key}Screen`)}
+        onTitlePress={() =>
+          navigation.navigate('IndicadorScreen', {
+            title: item.key,
+            path: item.path,
+            root: item.root,
+            unit: item.unit,
+          })
+        }
+        onInfoPress={() => {
+          navigation.navigate('DetailsScreen', {
+            title: item.key,
+            path: item.path,
+            root: item.root,
+            unit: item.unit,
+            dataCount: item.dataCount,
+          });
+        }}
       />
     );
   };

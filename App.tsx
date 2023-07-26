@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
-import {DolarScreen} from './src/screens/DolarScreen';
 import {DetailsScreen} from './src/screens/DetailsScreen';
+import {IndicadorScreen} from './src/screens/IndicadorScreen/IndicadorScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,9 +11,9 @@ function App() {
     <Stack.Navigator>
       <Stack.Screen name="Indicadores" component={HomeScreen} />
       <Stack.Screen
-        name="DolarScreen"
-        component={DolarScreen}
-        options={{title: 'Dólar'}}
+        name="IndicadorScreen"
+        component={IndicadorScreen}
+        options={({route}: any) => ({title: route.params.title})}
       />
       <Stack.Screen
         name="DetailsScreen"

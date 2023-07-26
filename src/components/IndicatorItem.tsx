@@ -4,21 +4,25 @@ import {StyleSheet} from 'react-native';
 
 interface IndicatorItemProps {
   name: string;
-  onPress: () => void;
+  onTitlePress: () => void;
+  onInfoPress: () => void;
 }
 
 class IndicatorItem extends Component<IndicatorItemProps, {}> {
   render(): React.ReactNode {
     return (
-      <ListItem onPress={this.props.onPress}>
+      <ListItem>
         <ListItem.Content>
-          <ListItem.Title>{this.props.name}</ListItem.Title>
+          <ListItem.Title onPress={this.props.onTitlePress}>
+            {this.props.name}
+          </ListItem.Title>
         </ListItem.Content>
         <Avatar
           size={20}
           rounded
           icon={{name: 'info', type: 'font-awesome-5'}}
           containerStyle={styles.avatar}
+          onPress={this.props.onInfoPress}
         />
         <ListItem.Chevron />
       </ListItem>

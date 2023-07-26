@@ -1,15 +1,25 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {H1} from '../../components/H1';
 import {useRoute} from '@react-navigation/native';
+import {useIndicadors} from '../../hooks/useIndicadors';
+import Table from '../../components/Table';
+import {Graph} from '../../components/Graph';
 
 export const DetailsScreen = () => {
-  const route = useRoute<any>();
-  const {params} = route;
+  const {params} = useRoute<any>();
+  const {title, path, root, unit, dataCount} = params;
+  const {data, loading} = useIndicadors(path, root);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <View style={styles.container}>
-      <H1 text={params.valor} />
+      <H1 text={data[0]?.Valor} />
+      <Table name={title} unit={unit} date={data[0]?.Fecha} />
+      <Graph data={data} dataCount={dataCount} />
     </View>
   );
 };
@@ -17,5 +27,6 @@ export const DetailsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
 });
