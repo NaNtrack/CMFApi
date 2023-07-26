@@ -14,6 +14,12 @@ npm i
 yarn
 ```
 
+Luego de instalar las dependencias debes ejecutar el siguiente comando
+
+```
+cd ios; pod install
+```
+
 ## Paso 2: Iniciar el servidor Metro
 
 ```bash
