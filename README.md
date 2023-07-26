@@ -51,3 +51,7 @@ npm run ios
 # O usando Yarn
 yarn ios
 ```
+
+## TODO:
+
+1. Arreglar `yarn test`
