@@ -12,7 +12,7 @@ export const useDolarScreen = () => {
     api
       .get(`/dolar/${currentYear.getFullYear()}`)
       .then((response: ApiResponse<any>) => {
-        setDolarData(response.data.Dolares.slice(0, 30));
+        setDolarData(response.data.Dolares.reverse().slice(0, 30));
       })
       .catch((error: any) => {
         console.error(error);
