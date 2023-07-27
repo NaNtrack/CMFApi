@@ -2,14 +2,14 @@ import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {H1} from '../../components/H1';
 import {useRoute} from '@react-navigation/native';
-import {useIndicadors} from '../../hooks/useIndicadors';
+import {useIndicators} from '../../hooks/useIndicators';
 import Table from '../../components/Table';
 import {Graph} from '../../components/Graph';
 
 export const DetailsScreen = () => {
   const {params} = useRoute<any>();
   const {title, path, root, unit, dataCount} = params;
-  const {data, loading} = useIndicadors(path, root);
+  const {data, loading} = useIndicators(path, root);
 
   if (loading) {
     return <ActivityIndicator />;

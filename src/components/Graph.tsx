@@ -30,7 +30,6 @@ export const Graph = (props: GraphProps) => {
       width={Dimensions.get('window').width}
       height={220}
       yAxisLabel="$"
-      yAxisSuffix="k"
       chartConfig={{
         backgroundColor: '#e26a00',
         backgroundGradientFrom: '#fb8c00',

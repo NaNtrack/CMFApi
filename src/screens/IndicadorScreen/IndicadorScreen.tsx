@@ -1,5 +1,5 @@
 import React from 'react';
-import {useIndicadors} from '../../hooks/useIndicadors';
+import {useIndicators} from '../../hooks/useIndicators';
 import {ActivityIndicator, FlatList} from 'react-native';
 import {ListItem} from '@rneui/themed';
 import {useRoute} from '@react-navigation/native';
@@ -7,7 +7,7 @@ import {useRoute} from '@react-navigation/native';
 export const IndicadorScreen = () => {
   const {params} = useRoute<any>();
   const {path, root} = params;
-  const {data, loading} = useIndicadors(path, root);
+  const {data, loading} = useIndicators(path, root);
 
   const renderDataItem = ({item}: any) => {
     return (

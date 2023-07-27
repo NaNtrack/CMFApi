@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 
 interface IndicatorItemProps {
   name: string;
+  subtitle: string;
   onTitlePress: () => void;
   onInfoPress: () => void;
 }
@@ -16,6 +17,7 @@ class IndicatorItem extends Component<IndicatorItemProps, {}> {
           <ListItem.Title onPress={this.props.onTitlePress}>
             {this.props.name}
           </ListItem.Title>
+          <ListItem.Subtitle>{this.props.subtitle}</ListItem.Subtitle>
         </ListItem.Content>
         <Avatar
           size={20}

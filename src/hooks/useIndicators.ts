@@ -3,7 +3,7 @@ import api from '../api/api';
 import {ApiResponse} from 'apisauce';
 import type {UseIndicatorsResult} from './useIndicators.types';
 
-export const useIndicadors = (
+export const useIndicators = (
   path: string,
   root: string,
 ): UseIndicatorsResult => {

@@ -11,6 +11,7 @@ function HomeScreen() {
     return (
       <IndicatorItem
         name={item.value}
+        subtitle={item.unit}
         onTitlePress={() =>
           navigation.navigate('IndicadorScreen', {
             title: item.key,
